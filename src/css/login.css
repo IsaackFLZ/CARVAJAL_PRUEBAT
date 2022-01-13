@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&display=swap');
+*{
+    font-family: 'Jost', sans-serif;
+}
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #4E5CDB;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+#login-box{
+    display: flex;
+    flex-direction: row;
+    border-radius: 10px;
+    height: 70vh;
+    width: 80vh;
+    background-color: #ffffff;
+    box-shadow: 15px 15px 4px rgba(0, 0, 0, 0.25)
+}
+#emailtxt{
+    border: none;
+    background-color: #E5E5E5;
+    border-radius: 5px;
+    padding: 1em;
+    width: 70%;
+    margin-bottom: 1em;
+}
+#passtxt{
+    border: none;
+    background-color: #E5E5E5;
+    border-radius: 5px;
+    width: 70%;
+    padding: 1em;
+    margin-bottom: 1em;
+}
+#wallp{
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    height: 100%;
+    
+}
+#col1{
+    flex:0.5;
+}
+#col2{
+    flex:0.5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+#btns{
+    color: #ffffff;
+    background-color: #4E5CDB;
+    width: 77.5%;
+    border-radius: 5px;
+    padding: 1em;
+    border: none;
+}
+@media (max-width: 390px) {
+    #login-box{
+        justify-content:center
+    }
+    #col1{
+        display: none;
+    }
+    #wallp{
+        display:none
+    }
+  }

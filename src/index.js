@@ -1,5 +1,6 @@
 import react from 'react';
 import ReactDOM from 'react-dom';
-import { Login } from './page/Login'
+//import { Login } from './page/Login'
+import { Crud } from './page/crud'
 
-ReactDOM.render(<Login />, document.getElementById('root'));
+ReactDOM.render(<Crud />, document.getElementById('root'));

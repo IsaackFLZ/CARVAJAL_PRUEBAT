@@ -49,10 +49,33 @@ body{
 }
 #switch{
     padding: 0.75em;
-    width: 6em;
+    width: 5em;
+    background-color: #f8f8f8;
     border-radius: 25px;
     border: none;
+    cursor: pointer;
 }
+#switch.active{
+    background-color: #222;
+}
+#circle{
+    margin-top: -4.5vh;
+    margin-left: 0.25vh;
+    position: relative;
+    background-color: #444;
+    width: 0.75em;
+    height: 0.75em;
+    padding: 0.75em;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    transition: 0.35s;
+}
+#circle.active{
+    margin-left: 1.75em;
+    background-color: #f8f8f8
+}    
+
 #table{
     display: flex;
     justify-content: center;
@@ -61,6 +84,10 @@ body{
     overflow-y: scroll;
     padding: 1em;
     background-color: #ffffff;
+}
+#table.active{
+    background-color: #2b2b2b;
+    color: #ffffff;
 }
 #table tr th{
     text-align: left;
@@ -76,11 +103,154 @@ body{
 }
 .agregar #btnAg{
     margin-right: 2vh;
-    font-size: 2.5em;
+    font-size: 1em;
     color: #4E5CDB;
     border: none;
     height: 50px;
     width: 50px;
     border-radius: 50%;
     box-shadow: 1px 3px 10px 1px #000000;
+}
+.modal-container {
+    background-color: rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    opacity: 0;
+    pointer-events: none;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    transition: 0.35s;
+}
+.modal-container.show{
+    pointer-events: auto;
+    opacity: 1;
+}
+.modal{
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    padding: 30px 50px;
+    width: 600px;
+    max-width: 100%;
+}
+#formag{
+    text-align: center;
+}
+#usernametxta{
+    text-align: center;
+    border: none;
+    background-color: #E5E5E5;
+    border-radius: 5px;
+    padding: 1em;
+    width: 70%;
+    margin-bottom: 1em;
+}
+#emailtxta{
+    text-align: center;
+    border: none;
+    background-color: #E5E5E5;
+    border-radius: 5px;
+    padding: 1em;
+    width: 70%;
+    margin-bottom: 1em;
+}
+#numbertxta{
+    text-align: center;
+    border: none;
+    background-color: #E5E5E5;
+    border-radius: 5px;
+    padding: 1em;
+    width: 70%;
+    margin-bottom: 1em;
+}
+#btnsa{
+    color: #ffffff;
+    background-color: #4E5CDB;
+    width: 77.5%;
+    border-radius: 5px;
+    padding: 1em;
+    border: none;
+}
+#closebtn{
+    border: solid 1px #000;
+    background-color: #fff;
+    width: 2.5vh;
+    border-radius: 50%;
+    transform: translate(36vh, -36vh);
+}
+
+.modal-containere {
+    background-color: rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    opacity: 0;
+    pointer-events: none;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    transition: 0.35s;
+}
+.modal-containere.show{
+    pointer-events: auto;
+    opacity: 1;
+}
+.modale{
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    padding: 30px 50px;
+    width: 600px;
+    max-width: 100%;
+}
+#forme{
+    text-align: center;
+}
+#usernametxte{
+    text-align: center;
+    border: none;
+    background-color: #E5E5E5;
+    border-radius: 5px;
+    padding: 1em;
+    width: 70%;
+    margin-bottom: 1em;
+}
+#emailtxte{
+    text-align: center;
+    border: none;
+    background-color: #E5E5E5;
+    border-radius: 5px;
+    padding: 1em;
+    width: 70%;
+    margin-bottom: 1em;
+}
+#numbertxte{
+    text-align: center;
+    border: none;
+    background-color: #E5E5E5;
+    border-radius: 5px;
+    padding: 1em;
+    width: 70%;
+    margin-bottom: 1em;
+}
+#btnse{
+    color: #ffffff;
+    background-color: #4E5CDB;
+    width: 77.5%;
+    border-radius: 5px;
+    padding: 1em;
+    border: none;
+}
+#closebtne{
+    border: solid 1px #000;
+    background-color: #fff;
+    width: 2.5vh;
+    border-radius: 50%;
+    transform: translate(36vh, -36vh);
 }

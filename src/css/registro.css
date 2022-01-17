@@ -12,7 +12,7 @@ body {
     padding: 0;
     box-sizing: border-box;
 }
-#login-box{
+#registro-box{
     display: flex;
     flex-direction: row;
     border-radius: 10px;
@@ -21,7 +21,7 @@ body {
     background-color: #ffffff;
     box-shadow: 15px 15px 4px rgba(0, 0, 0, 0.25)
 }
-#emailtxt{
+#usertxt{
     border: none;
     background-color: #E5E5E5;
     border-radius: 5px;
@@ -29,7 +29,15 @@ body {
     width: 70%;
     margin-bottom: 1em;
 }
-#passtxt{
+#mailtxt{
+    border: none;
+    background-color: #E5E5E5;
+    border-radius: 5px;
+    padding: 1em;
+    width: 70%;
+    margin-bottom: 1em;
+}
+#passwordtxt{
     border: none;
     background-color: #E5E5E5;
     border-radius: 5px;
@@ -37,7 +45,8 @@ body {
     padding: 1em;
     margin-bottom: 1em;
 }
-#wallp{
+#wall{
+    width: 100%;
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
     height: 100%;
@@ -53,18 +62,13 @@ body {
     align-items: center;
     flex-direction: column;
 }
-#col2 a{
-    text-decoration: none;
-    font-weight: 400;
-}
-#btns{
+#btne{
     color: #ffffff;
     background-color: #4E5CDB;
     width: 77.5%;
     border-radius: 5px;
     padding: 1em;
     border: none;
-    cursor: pointer;
 }
 @media (max-width: 390px) {
     #login-box{

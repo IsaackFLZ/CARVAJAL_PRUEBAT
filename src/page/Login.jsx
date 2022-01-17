@@ -16,6 +16,7 @@ export function Login() {
 
                 alert("Login Exitoso")
                     localStorage.setItem('Token', response.data.success)
+                    localStorage.setItem('userid', response.data.usuarioId)
                     window.location.href="./Contactos"
             }else{
                 alert(response.data.error)

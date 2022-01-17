@@ -20,13 +20,12 @@ export function Crud() {
       );
   
     });
-    function CreateC() {
-      const datar = (e) => {
+      const dataA = (e) => {
         e.preventDefault();
-        let usuarioId = document.getElementById('usertxt').value
-        let Nombre_Contacto = document.getElementById('usertxt').value
-        let Email_Contacto = document.getElementById('mailtxt').value
-        let Celular_Contacto = document.getElementById('passwordtxt').value
+        let usuarioId = localStorage.getItem('userid');
+        let Nombre_Contacto = document.getElementById('usernametxta').value
+        let Email_Contacto = document.getElementById('emailtxta').value
+        let Celular_Contacto = document.getElementById('numbertxta').value
         PostContactos({
           idUsuario: usuarioId,
           Nombre_Contacto: Nombre_Contacto,
@@ -36,7 +35,6 @@ export function Crud() {
             if(!response.data.error){
 
                 alert("Registro Exitoso")
-                    window.location.href="/"
             }else{
                 alert(response.data.error)
             }
@@ -44,7 +42,6 @@ export function Crud() {
             
         });
         }  
-    }
     function Toggle() {
       const table = document.getElementById('table');
       const Switch = document.getElementById('switch');
@@ -128,9 +125,8 @@ export function Crud() {
         <input onClick={ PopUp } type="button" id="btnAg" value="+"></input>
         <div class="modal-container" id="modal-container">
           <div class="modal">
-          <form id="formag" action="">
+          <form id="formag" action="" onSubmit={ dataA }>
         <h1>Nuevo Contacto</h1>
-        <input type="text" id="usernametxta" name="usernamea" placeholder="Usuario" />
         <input type="text" id="usernametxta" name="usernamea" placeholder="Usuario" />
         <input type="email" id="emailtxta"name="emaila" placeholder="Email"/>
         <input type="number" id="numbertxta"name="passworda" placeholder="Numero"/>

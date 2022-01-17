@@ -34,13 +34,14 @@ export const GetContactos = async(successCallback) => {
     await axios.request(options).then(successCallback);
 };
 export const PostContactos = async(req, successCallback) => {
+    const userId = localStorage.getItem('userid');
     const token = localStorage.getItem('Token');
     const options = {
         method: 'POST',
         url: "http://localhost:4000/api/contactos",
         headers: {'user-token': token},
         data: {
-            idUsuario: req.usuarioId,
+            idUsuario: userId,
             Nombre_Contacto: req.Nombre_Contacto,
             Email_Contacto: req.Email_Contacto,
             Celular_Contacto: req.Celular_Contacto,
@@ -58,6 +59,7 @@ export const BusquedaContactos = async(id, successCallback) => {
     await axios.request(options).then(successCallback);
 };
 export const editarContacto = async(id, req, successCallback) => {
+    const userId = localStorage.getItem('userid');
     const token = localStorage.getItem('Token');
     const options = {
         method: 'PUT',

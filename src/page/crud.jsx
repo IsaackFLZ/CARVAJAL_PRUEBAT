@@ -43,7 +43,7 @@ export function Crud() {
            
             
         });
-        
+        }  
     }
     function Toggle() {
       const table = document.getElementById('table');
@@ -82,7 +82,77 @@ export function Crud() {
       });
     };
     return (<div className="crud">
-        
+        <nav id="navbar">
+            <ul>
+                <li><h2>Contactos</h2></li>
+                <li><input type="search" id="bsq" placeholder="Buscar" /><input type="button" value="Buscar" /></li>
+                <li onClick ={ Toggle }><input type="button" id="switch" ></input> <div id="circle" ></div></li>
+            </ul>
+        </nav><br /><br /><br /><br />
+        <div id="table">
+        <table>
+        <thead>
+              <tr>
+                <th>Nombres</th>
+                <th>Email</th>
+                <th>Celular</th>
+                <th>Opciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              {contacto.map((c) => {
+                return (
+                  <tr>
+                    <td>
+                      {c.Nombre_Contacto}
+                    </td>
+                    <td>
+                      {c.Email_Contacto}
+                    </td>
+                    <td>
+                      {c.Celular_Contacto}
+                    </td>
+                    <td>
+                      <input type="button" id="btnedit" value="Editar" onClick={ PopUpe } />
+                      <input type="button" value="Borrar" onClick={()=> DeleteContactos(c.idContacto, (response)=> {console.log(response)})} />
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+
+        </table>
+        </div>
+       <br />
+    <div class="agregar">
+        <input onClick={ PopUp } type="button" id="btnAg" value="+"></input>
+        <div class="modal-container" id="modal-container">
+          <div class="modal">
+          <form id="formag" action="">
+        <h1>Nuevo Contacto</h1>
+        <input type="text" id="usernametxta" name="usernamea" placeholder="Usuario" />
+        <input type="text" id="usernametxta" name="usernamea" placeholder="Usuario" />
+        <input type="email" id="emailtxta"name="emaila" placeholder="Email"/>
+        <input type="number" id="numbertxta"name="passworda" placeholder="Numero"/>
+        <input type="submit" id="btnsa" name="submit" value="Enviar" ></input> <br />
+        <input type="button" id="closebtn" value="X" />
+        </form>
+          </div>
+        </div>
+    </div>
+    <div class="editar"><div class="modal-containere" id="modal-containere">
+          <div class="modale">
+          <form id="forme" action="">
+        <h1>Actualización Contacto</h1>
+        <input type="text" id="usernametxte" name="usernamee" placeholder="Usuario" />
+        <input type="email" id="emailtxte"name="emaile" placeholder="Email"/>
+        <input type="number" id="numbertxte"name="passworde" placeholder="Numero"/>
+        <input type="submit" id="btnse" name="submite" value="Enviar" ></input> <br />
+        <input type="button" id="closebtne" value="X" />
+        </form>
+          </div>
+          </div>
+         </div>
     </div>);
-}
-}
+ }
+

@@ -49,11 +49,20 @@ export const PostContactos = async(req, successCallback) => {
     };
     await axios.request(options).then(successCallback);
 };
-export const BusquedaContactos = async(id, successCallback) => {
+export const BusquedaContactos = async(number, successCallback) => {
     const token = localStorage.getItem('Token');
     const options = {
         method: 'GET',
-        url: `http://localhost:4000/api/contactos/${id}`,
+        url: `http://localhost:4000/api/contactos/${number}`,
+        headers: {'user-token': token}
+    };
+    await axios.request(options).then(successCallback);
+};
+export const obtenerEContactos = async(id, successCallback) => {
+    const token = localStorage.getItem('Token');
+    const options = {
+        method: 'GET',
+        url: `http://localhost:4000/api/contactos/editar/${id}`,
         headers: {'user-token': token}
     };
     await axios.request(options).then(successCallback);
@@ -61,12 +70,13 @@ export const BusquedaContactos = async(id, successCallback) => {
 export const editarContacto = async(id, req, successCallback) => {
     const userId = localStorage.getItem('userid');
     const token = localStorage.getItem('Token');
+    console.log(id, req)
     const options = {
         method: 'PUT',
         url: `http://localhost:4000/api/contactos/${id}`,
         headers: {'user-token': token},
         data: {
-            idUsuario: req.usuarioId,
+            idUsuario: userId,
             Nombre_Contacto: req.Nombre_Contacto,
             Email_Contacto: req.Email_Contacto,
             Celular_Contacto: req.Celular_Contacto,

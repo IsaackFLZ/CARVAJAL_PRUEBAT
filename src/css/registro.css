@@ -71,7 +71,7 @@ body {
     border: none;
 }
 @media (max-width: 390px) {
-    #login-box{
+    #registro-box{
         justify-content:center
     }
     #col1{

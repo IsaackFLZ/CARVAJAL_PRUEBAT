@@ -1,20 +1,33 @@
 import react, {useState, useEffect} from 'react';
 import '../css/crud.css';
-import { GetContactos, DeleteContactos, PostContactos } from '../utils/index.js'
+import { GetContactos, DeleteContactos, PostContactos, editarContacto, BusquedaContactos, obtenerEContactos } from '../utils/index.js'
+import { Link } from 'react-router-dom'
 import { Login } from './Login';
 
 
 export function Crud() {
   const [contacto, setContactos] = useState([]);
-
-  useEffect(() => {
+  const [filtroc, setFiltro] = useState("");
   
+  useEffect(() => {
+      
       GetContactos(
         (response) => {
           if(response.data.error){
             alert(response.data.error);
           }else{
-            setContactos(response.data)
+            setContactos(response.data.filter((contacto)=>{ 
+              if(filtroc === contacto.Celular_Contacto){
+                //console.log(contacto)
+                return(
+                  contacto
+                )
+              }else if(filtroc === ""){
+                return(
+                  contacto
+                )
+              }
+             }))
           }
         }
       );
@@ -41,7 +54,8 @@ export function Crud() {
            
             
         });
-        }  
+        }
+        
     function Toggle() {
       const table = document.getElementById('table');
       const Switch = document.getElementById('switch');
@@ -66,6 +80,7 @@ export function Crud() {
       });
     };
     function PopUpe() {
+      //editar(id) 
       const open = document.getElementById('btnedit');
       const modal_container = document.getElementById('modal-containere');
       const close = document.getElementById('closebtne');
@@ -78,11 +93,33 @@ export function Crud() {
         modal_container.classList.remove('show');
       });
     };
+    function editar(id){
+      obtenerEContactos(id, (response)=>{
+        console.log(response.data);
+      });
+    };
     return (<div className="crud">
         <nav id="navbar">
             <ul>
                 <li><h2>Contactos</h2></li>
-                <li><input type="search" id="bsq" placeholder="Buscar" /><input type="button" value="Buscar" /></li>
+                <li><input type="search" id="bsq" placeholder="Buscar" onChange={(e)=> {
+                  console.log(e.target.value);
+                  BusquedaContactos( e.target.value,
+                    (response) => {
+                      if(response.data.error){
+                        alert(response.data.error);
+                      }else{
+                        if(e.target.value.length === 10){
+                          setFiltro(e.target.value)
+                        console.log(filtroc)
+                        }else{
+                          setFiltro("");
+                        }
+                        
+                      }
+                    }
+                  )
+                }} /></li>
                 <li onClick ={ Toggle }><input type="button" id="switch" ></input> <div id="circle" ></div></li>
             </ul>
         </nav><br /><br /><br /><br />
@@ -97,7 +134,7 @@ export function Crud() {
               </tr>
             </thead>
             <tbody>
-              {contacto.map((c) => {
+            {contacto.map((c) => {
                 return (
                   <tr>
                     <td>
@@ -110,13 +147,15 @@ export function Crud() {
                       {c.Celular_Contacto}
                     </td>
                     <td>
-                      <input type="button" id="btnedit" value="Editar" onClick={ PopUpe } />
+                      <Link to = {`/Editar/${c.idContacto}`}>
+                      <input type="button" value="Editar"/>                      
+                      </Link>
                       <input type="button" value="Borrar" onClick={()=> DeleteContactos(c.idContacto, (response)=> {console.log(response)})} />
                     </td>
                   </tr>
                 );
               })}
-            </tbody>
+            </tbody> 
 
         </table>
         </div>
@@ -138,7 +177,7 @@ export function Crud() {
     </div>
     <div class="editar"><div class="modal-containere" id="modal-containere">
           <div class="modale">
-          <form id="forme" action="">
+          <form id="forme" action="" >
         <h1>Actualización Contacto</h1>
         <input type="text" id="usernametxte" name="usernamee" placeholder="Usuario" />
         <input type="email" id="emailtxte"name="emaile" placeholder="Email"/>

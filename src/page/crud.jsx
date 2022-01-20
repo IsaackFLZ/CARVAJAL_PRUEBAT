@@ -121,6 +121,7 @@ export function Crud() {
                   )
                 }} /></li>
                 <li onClick ={ Toggle }><input type="button" id="switch" ></input> <div id="circle" ></div></li>
+                <li><Link to="/"><button id="exit">Cerrar Sesión</button></Link></li>
             </ul>
         </nav><br /><br /><br /><br />
         <div id="table">

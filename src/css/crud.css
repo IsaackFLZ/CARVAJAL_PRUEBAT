@@ -75,7 +75,10 @@ body{
     margin-left: 1.75em;
     background-color: #f8f8f8
 }    
-
+#exit{
+    border: none;
+    border-radius: 5px;
+}
 #table{
     display: flex;
     justify-content: center;

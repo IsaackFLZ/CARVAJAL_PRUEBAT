@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
+import '../css/popupe.css';
 import { useParams } from 'react-router-dom';
 import {editarContacto, obtenerEContactos} from '../utils/index.js'
 export default function Popupe() {
@@ -21,16 +23,21 @@ export default function Popupe() {
             Celular_Contacto: celular
         }
         await editarContacto(id, data, (response)=>{
-            console.log(response)
+            alert("Se han actualizado los datos del contacto")
         });
     }
     return (
-        <div>
-            <form onSubmit={Editar}>
+        <div class="m-container" id="m-container">
+            <form id="aggform"onSubmit={Editar}>
+                <h1>Editar Contactos</h1>
                 <input type="text" id="txtNombre" defaultValue={contacto.Nombre_Contacto}/> 
                 <input type="text"  id="txtEmail" defaultValue={contacto.Email_Contacto}/>
                 <input type="text"  id="txtCelular" defaultValue={contacto.Celular_Contacto}/>
-                <input type="submit" value="Enviar" />
+                <input type="submit" id="btneagg"value="Enviar" /><br />
+                <Link to="/Contactos">
+                <button id="btncagg">X</button>
+                </Link>
+                
             </form>          
         </div>
     )

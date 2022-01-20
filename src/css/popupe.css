@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&display=swap');
+body{
+    font-family: 'Jost', sans-serif;
+}
+
+#m-container{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    transition: 0.35s;
+}
+#aggform{
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    padding: 30px 50px;
+    width: 600px;
+    max-width: 100%;
+}
+#txtNombre{
+    text-align: center;
+    border: none;
+    background-color: #E5E5E5;
+    border-radius: 5px;
+    padding: 1em;
+    width: 70%;
+    margin-bottom: 1em;
+}
+#txtEmail{
+    text-align: center;
+    border: none;
+    background-color: #E5E5E5;
+    border-radius: 5px;
+    padding: 1em;
+    width: 70%;
+    margin-bottom: 1em;
+}
+#txtCelular{
+    text-align: center;
+    border: none;
+    background-color: #E5E5E5;
+    border-radius: 5px;
+    padding: 1em;
+    width: 70%;
+    margin-bottom: 1em;
+}
+#btneagg{
+    color: #ffffff;
+    background-color: #4E5CDB;
+    width: 77.5%;
+    border-radius: 5px;
+    padding: 1em;
+    border: none;
+}
+#btncagg{
+    border: solid 1px #000;
+    background-color: #fff;
+    width: 2.5vh;
+    border-radius: 50%;
+    transform: translate(36vh, -36vh);
+}
